@@ -35,4 +35,4 @@ flash:
 	avrdude -c ${PROGRAMMER} -P usb -p ${AVRDUDE_MCU} -U flash:w:$(OUTDIR)/${TARGET}.hex
 
 clean:
-	rm -f *.o *.hex
+	rm -R $(OUTDIR)
