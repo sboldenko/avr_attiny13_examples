@@ -11,10 +11,15 @@ For programming MCU use **avrdude**.
 Change the variable **PROGRAMMER** in **Makefile**, if you use other programmer, not **usbasp**.
 
 > Makefile options:
+
 > **all**- build project;
+
 > **signature** - read MCU ID;
+
 > **fuse** - programming MCU fuse-bits;
+
 > **flash** - programming MCU flash;
+
 > **clean** - clean temporary files and "build" folder.
 
 ![TinyModule13 ver1.0](/doc/board_photo.jpg)
