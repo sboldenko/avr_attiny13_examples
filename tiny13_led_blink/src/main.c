@@ -10,29 +10,25 @@ E-mail: venera.electronica@gmail.com
 void main(void)
 {
     // GPIO
-    // PORTB0 = out 0
-    // PORTB1 = out 0
-    // PORTB2 = out 0
-    // PORTB3 = out 0
-    // PORTB4 = out 0
-    DDRB = 0x00 ;
+    // PORTB0 = out, value = 0
+    // PORTB1 = out, value = 0
+    // PORTB2 = out, value = 0
+    // PORTB3 = out, value = 0
+    // PORTB4 = out, value = 0
+    DDRB |= (1 << PB4) | (1 << PB3) | (1 << PB2) | (1 << PB1) | (1 << PB0);
     PORTB = 0x00;
-
-    // Timer/Counter 0
-    TCCR0A = 0x00;
-    TCCR0B = 0x01;
 
     while(1)
     {
-        PORTB = 0x01;
+        PORTB = (1 << PB0);
         _delay_ms(100);
-        PORTB = 0x02;
+        PORTB = (1 << PB1);
         _delay_ms(100);
-        PORTB = 0x04;
+        PORTB = (1 << PB2);
         _delay_ms(100);
-        PORTB = 0x08;
+        PORTB = (1 << PB3);
         _delay_ms(100);
-        PORTB = 0x10;
+        PORTB = (1 << PB4);
         _delay_ms(100);
     }
 }
