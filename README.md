@@ -5,6 +5,7 @@ The projects for **avr-gcc compiler**.
 Description of projects:
 - **tiny13_led_blink** - led blink using util/delay.h library.
 - **tiny13_led_blink_timer0** - led blink using timer/counter0 in normal mode.
+- **tiny13_pwm** - led blink using timer/counter0 in pwm mode.
 
 For programming MCU use **avrdude**.
 
