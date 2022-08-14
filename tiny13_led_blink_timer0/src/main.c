@@ -5,7 +5,6 @@ E-mail: venera.electronica@gmail.com
 */
 
 #include <avr/io.h>
-#include <util/delay.h>
 
 void main(void)
 {
@@ -13,17 +12,18 @@ void main(void)
     uint8_t value = 0;
 
     // GPIO
-    // PORTB0 = out 1
-    // PORTB1 = out 0
-    // PORTB2 = out 0
-    // PORTB3 = out 0
-    // PORTB4 = out 0
-    DDRB = 0x00 ;
-    PORTB = 0x01;
+    // PORTB0 = out, value = 1
+    // PORTB1 = out, value = 0
+    // PORTB2 = out, value = 0
+    // PORTB3 = out, value = 0
+    // PORTB4 = out, value = 0
+    DDRB |= (1 << PB4) | (1 << PB3) | (1 << PB2) | (1 << PB1) | (1 << PB0);
+    PORTB = (1 << PB0);
 
     // Timer/Counter 0
+    // Normal mode
     TCCR0A = 0x00;
-    TCCR0B = 0x01;
+    TCCR0B = (1 << CS00);
     TCNT0 = 0x00;
 
     while(1)
@@ -43,19 +43,19 @@ void main(void)
             switch (value)
             {
                 case 0:
-                    PORTB = 0b00000001;
+                    PORTB = (1 << PB0);
                     break;
                 case 1:
-                    PORTB = 0b00000010;
+                    PORTB = (1 << PB1);
                     break;
                 case 2:
-                    PORTB = 0b00000100;
+                    PORTB = (1 << PB2);
                     break;
                 case 3:
-                    PORTB = 0b00001000;
+                    PORTB = (1 << PB3);
                     break;
                 case 4:
-                    PORTB = 0b00010000;
+                    PORTB = (1 << PB4);
                     break;
             }
         }
